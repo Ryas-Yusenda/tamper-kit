@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT to MarkDown
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.0
+// @version      1.1.0
 // @description  Export ChatGPT conversation to Markdown
 // @author       Ry-ys
 // @match        https://chatgpt.com/*
@@ -33,12 +33,12 @@
     btn.id = 'export-chat';
     btn.textContent = 'Export Chat';
     Object.assign(btn.style, {
-      marginLeft: '6px',
-      marginRight: '6px',
-      padding: '5px',
+      margin: '0px 6px',
+      padding: '6px 10px',
       height: 'auto',
-      width: '93%',
-      backgroundColor: '#4cafa3',
+      width: '233px',
+      maxWidth: 'calc(100% - var(--spacing) * 3)',
+      backgroundColor: 'rgb(76, 175, 163)',
       color: 'white',
       border: 'none',
       borderRadius: '10px',
