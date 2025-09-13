@@ -7,8 +7,9 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 
 ## 📦 Scripts List
 
-| Script Name | Install |
-| ----------- | ------- |
+| Script Name       | Install                                                                         |
+| ----------------- | ------------------------------------------------------------------------------- |
+| **Arrow Clicker** | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/arrow-clicker) |
 
 ---
 
