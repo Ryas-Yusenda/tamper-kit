@@ -1,0 +1,7 @@
+*.pem
+*.json
+!manifest.json
+
+# Ignore user scripts
+pixeldrain-bypass.user.js
+medium-bypass.user.js
