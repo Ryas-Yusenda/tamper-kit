@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Streaming Mode — Blur Inputs",
+  "version": "1.0",
+  "description": "Toggle blur on all inputs when streaming or screen sharing.",
+  "author": "Ry-ys",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Streaming Mode (Blur Inputs)"
+  }
+}

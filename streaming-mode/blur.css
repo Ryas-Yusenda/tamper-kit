@@ -1,0 +1,16 @@
+/* Blur all inputs except textarea */
+input:not([type='hidden']):not(textarea),
+select,
+[contenteditable='true'] {
+  filter: blur(5px) !important;
+}
+
+/* Blur inner text in contenteditable */
+[contenteditable='true'] * {
+  filter: blur(5px) !important;
+}
+
+/* Do not blur textareas */
+textarea {
+  filter: none !important;
+}
