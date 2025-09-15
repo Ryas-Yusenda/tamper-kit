@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Youtube Grid Enhanced
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.1.0
+// @version      1.2.0
 // @description  Customize Youtube grid items per row and hide ads/unwanted elements.
 // @author       Ry-ys
 // @match        *://www.youtube.com/*
@@ -70,7 +70,8 @@
             display: none !important;
         }
 
-        yt-slimline-survey-view-model{
+        /* Comments survey */
+        yt-slimline-survey-view-model {
             display: none !important;
         }
 
@@ -78,21 +79,21 @@
         VIDEO GRID DESCRIPTION
         =================================== */
         /* Keep main container column-based */
-            yt-content-metadata-view-model {
+        yt-content-metadata-view-model {
             display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
         }
 
         /* First row: channel name */
-            yt-content-metadata-view-model:nth-child(1) {
+        yt-content-metadata-view-model:nth-child(1) {
             display: block !important;
             text-align: left !important;
             margin-bottom: 4px;
         }
 
         /* Second row: view count + stream info → stacked vertically */
-            yt-content-metadata-view-model:nth-child(2) {
+        yt-content-metadata-view-model:nth-child(2) {
             display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
@@ -103,7 +104,15 @@
         /* ===================================
         HIDE SHORTS VIDEOS
         =================================== */
-        ytd-rich-section-renderer.style-scope.ytd-rich-grid-renderer {
+        ytd-rich-section-renderer.style-scope.ytd-rich-grid-renderer ,
+        ytd-rich-shelf-renderer:has(a[href^="/shorts"]),
+        ytd-reel-shelf-renderer,
+        a[href^="/shorts"],
+        ytd-grid-video-renderer:has(a[href^="/shorts"]),
+        ytd-reel-item-renderer,
+        ytd-video-renderer:has(a[href*="shorts"]),
+        a[title="Shorts"],
+        a[href="/shorts"] {
             display: none !important;
         }
     `;
