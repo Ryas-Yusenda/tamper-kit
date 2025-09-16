@@ -12,7 +12,6 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | **Arrow Clicker**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/arrow-clicker)                    |
 | **Auto Scroll Clicker**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/auto-scroll-clicker)              |
 | **ChatGPT Theme**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/chat-gpt-theme.user.js)           |
-| **ChatGPT to MarkDown**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/chat-gpt-to-mark-down.user.js)    |
 | **Mailto to Gmail Redirect** | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/mailto-to-gmail-redirect.user.js) |
 | **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
 | **Wallhaven Enhance**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/wallhaven-enhance.user.js)        |
