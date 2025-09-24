@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Auto Scroll Clicker",
-  "version": "1.3",
+  "version": "1.4",
   "description": "Automatically clicks a button when scrolling reaches near the bottom of a page.",
   "author": "Ry-ys",
   "permissions": [

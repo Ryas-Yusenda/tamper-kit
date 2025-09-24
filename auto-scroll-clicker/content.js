@@ -23,9 +23,9 @@
 
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY + window.innerHeight;
-      const halfwayPoint = document.documentElement.scrollHeight / 2;
+      const triggerPoint = document.documentElement.scrollHeight - window.innerHeight / 2;
 
-      if (scrollPosition >= halfwayPoint && !isLoading) {
+      if (scrollPosition >= triggerPoint && !isLoading) {
         isLoading = true;
 
         let button = document.querySelector(siteConfig.querySelector);
