@@ -17,6 +17,7 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
 | **Wallhaven Enhance**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/wallhaven-enhance.user.js)        |
 | **Youtube Grid Enhanced**    | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-enhanced.user.js)    |
+| **Youtube Volume Enhanced**  | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-volume-enhanced.user.js)  |
 
 ---
 
