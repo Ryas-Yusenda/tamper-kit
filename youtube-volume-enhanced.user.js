@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Youtube Volume Enhanced
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.1.0
-// @description  Control YouTube volume up to 600% with keyboard shortcuts and overlay in the center of the video.
+// @version      1.2.0
+// @description  Control YouTube volume up to 600% with keyboard shortcuts.
 // @author       Ry-ys
 // @match        *://www.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
@@ -48,10 +48,7 @@
     if (!overlay) {
       overlay = document.createElement('div');
       overlay.id = 'yt-volume-overlay';
-      overlay.style.position = 'absolute';
-      overlay.style.top = '50%';
-      overlay.style.left = '50%';
-      overlay.style.transform = 'translate(-50%, -50%)';
+      overlay.style.position = 'fixed';
       overlay.style.fontSize = '32px';
       overlay.style.padding = '12px 24px';
       overlay.style.background = 'rgba(0,0,0,0.7)';
@@ -59,17 +56,28 @@
       overlay.style.borderRadius = '12px';
       overlay.style.zIndex = '9999';
       overlay.style.pointerEvents = 'none';
-      video.parentElement.appendChild(overlay);
+      document.body.appendChild(overlay);
     }
+
+    // Calculate the middle position of the video
+    const rect = video.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    overlay.style.left = `${centerX}px`;
+    overlay.style.top = `${centerY}px`;
+    overlay.style.transform = 'translate(-50%, -50%)';
+
     overlay.textContent = `🔊 ${percent}%`;
     overlay.style.display = 'block';
+
     clearTimeout(overlay._timeout);
     overlay._timeout = setTimeout(() => {
       overlay.style.display = 'none';
     }, 1000);
   }
 
-  // Control with the keyboard
+  // Control with the keyboardrd
   window.addEventListener('keydown', function (e) {
     if (['ArrowUp', 'ArrowDown'].includes(e.key)) {
       e.preventDefault();
