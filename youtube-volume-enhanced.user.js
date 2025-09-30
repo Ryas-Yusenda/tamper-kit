@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Youtube Volume Enhanced
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.3.0
-// @description  Control YouTube volume up to 600% with keyboard shortcuts.
+// @version      1.4.0
+// @description  Control YouTube volume up to 300% with keyboard shortcuts.
 //               Use Shift + ArrowUp to increase (+10%),
-//               Shift + ArrowDown to decrease (−10%).
+//               Use Shift + ArrowDown to decrease (−10%).
 // @author       Ry-ys
 // @match        *://www.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
@@ -20,29 +20,62 @@
 
   let video, audioCtx, source, gainNode;
   let currentGain = 1; // default = 100%
-  const MAX_GAIN = 6; // 600%
+  const MAX_GAIN = 3; // maximum = 300%
 
+  // Initialize the audio pipeline (video -> gainNode -> speakers)
   function initAudio() {
+    // always grab the currently active video element
     video = document.querySelector('video');
     if (!video) return;
 
+    // if audioCtx doesn't exist yet → create a new one
     if (!audioCtx) {
       audioCtx = new AudioContext();
+
+      // if audioCtx is suspended (blocked by autoplay policy) → resume
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
       source = audioCtx.createMediaElementSource(video);
       gainNode = audioCtx.createGain();
+
+      // ensure the video's native volume is 100%, control only via gainNode
+      video.volume = 1.0;
+
+      // connect the pipeline: video -> gainNode -> destination
       source.connect(gainNode).connect(audioCtx.destination);
+
+      console.log('[YouTube Volume Enhanced] Audio pipeline initialized');
+    } else {
+      // if audioCtx already exists, check if YouTube swapped video elements (e.g. after ads)
+      try {
+        if (source.mediaElement !== video) {
+          source.disconnect();
+          source = audioCtx.createMediaElementSource(video);
+          source.connect(gainNode).connect(audioCtx.destination);
+          console.log('[YouTube Volume Enhanced] Reconnected to new video element');
+        }
+      } catch (err) {
+        console.warn('[YouTube Volume Enhanced] Re-init error:', err);
+      }
     }
   }
 
+  // Adjust volume by changing the gain value
   function adjustVolume(change) {
     initAudio();
     if (!gainNode) return;
 
+    // clamp gain value between 0 and MAX_GAIN
     currentGain = Math.min(Math.max(currentGain + change, 0), MAX_GAIN);
     gainNode.gain.value = currentGain;
+
+    // show overlay on screen
     showVolumeOverlay(Math.round(currentGain * 100));
   }
 
+  // Display a volume overlay at the center of the video
   function showVolumeOverlay(percent) {
     if (!video) return;
 
@@ -53,15 +86,25 @@
       overlay.style.position = 'fixed';
       overlay.style.fontSize = '32px';
       overlay.style.padding = '12px 24px';
-      overlay.style.background = 'rgba(0,0,0,0.7)';
-      overlay.style.color = 'white';
       overlay.style.borderRadius = '12px';
       overlay.style.zIndex = '9999';
       overlay.style.pointerEvents = 'none';
+      overlay.style.fontWeight = 'bold';
       document.body.appendChild(overlay);
     }
 
-    // Calculate the middle position of the video
+    // choose background color based on volume level
+    if (percent <= 100) {
+      overlay.style.background = 'rgba(0, 128, 0, 0.8)'; // green
+    } else if (percent <= 200) {
+      overlay.style.background = 'rgba(255, 165, 0, 0.8)'; // yellow/orange
+    } else {
+      overlay.style.background = 'rgba(255, 0, 0, 0.8)'; // red
+    }
+
+    overlay.style.color = 'white';
+
+    // calculate center position of the video
     const rect = video.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -79,7 +122,7 @@
     }, 1000);
   }
 
-  // Control with the keyboardrd
+  // Keyboard controls: Shift + ArrowUp / ArrowDown
   window.addEventListener(
     'keydown',
     function (e) {
