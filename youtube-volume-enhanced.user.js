@@ -1,10 +1,8 @@
 // ==UserScript==
 // @name         Youtube Volume Enhanced
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.4.0
-// @description  Control YouTube volume up to 300% with keyboard shortcuts.
-//               Use Shift + ArrowUp to increase (+10%),
-//               Use Shift + ArrowDown to decrease (−10%).
+// @version      1.5.0
+// @description  Control YouTube volume up to 300% with keyboard shortcuts. Use Shift + ArrowUp to increase (+10%), Use Shift + ArrowDown to decrease (−10%).
 // @author       Ry-ys
 // @match        *://www.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
@@ -24,41 +22,14 @@
 
   // Initialize the audio pipeline (video -> gainNode -> speakers)
   function initAudio() {
-    // always grab the currently active video element
     video = document.querySelector('video');
     if (!video) return;
 
-    // if audioCtx doesn't exist yet → create a new one
     if (!audioCtx) {
       audioCtx = new AudioContext();
-
-      // if audioCtx is suspended (blocked by autoplay policy) → resume
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-
       source = audioCtx.createMediaElementSource(video);
       gainNode = audioCtx.createGain();
-
-      // ensure the video's native volume is 100%, control only via gainNode
-      video.volume = 1.0;
-
-      // connect the pipeline: video -> gainNode -> destination
       source.connect(gainNode).connect(audioCtx.destination);
-
-      console.log('[YouTube Volume Enhanced] Audio pipeline initialized');
-    } else {
-      // if audioCtx already exists, check if YouTube swapped video elements (e.g. after ads)
-      try {
-        if (source.mediaElement !== video) {
-          source.disconnect();
-          source = audioCtx.createMediaElementSource(video);
-          source.connect(gainNode).connect(audioCtx.destination);
-          console.log('[YouTube Volume Enhanced] Reconnected to new video element');
-        }
-      } catch (err) {
-        console.warn('[YouTube Volume Enhanced] Re-init error:', err);
-      }
     }
   }
 
