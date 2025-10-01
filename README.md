@@ -30,10 +30,15 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 
 ---
 
-## 💡 Usage Tips
+## ⚠️ Disclaimer
 
-- Keep your scripts updated to get the latest improvements and bug fixes.
-- Found a bug or have a feature idea? Open an **Issue** in this repository.
+All scripts in this repository are created **for educational purposes only**.  
+I am **not responsible** for any misuse, issues, or damages that may result from using these scripts.  
+Use them at your own risk.
+
+---
+
+Found a bug or have a feature idea? Open an **Issue** in this repository.
 
 ---
 
