@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name         Youtube Grid Enhanced
+// @name         YouTube Grid & Cleaner
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.3.1
-// @description  Customize Youtube grid items per row and hide ads/unwanted elements.
+// @version      2.0.0
+// @description  Adjust the number of videos per row based on screen width and hide ads, Shorts, and other unwanted elements on YouTube for a cleaner layout experience.
 // @author       Ry-ys
 // @match        *://www.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
 // @grant        none
 // @run-at       document-start
 // @license      MIT
-// @updateURL    https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-enhanced.user.js
-// @downloadURL  https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-enhanced.user.js
+// @updateURL    https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-cleaner.user.js
+// @downloadURL  https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-cleaner.user.js
 // ==/UserScript==
 
 (function () {
