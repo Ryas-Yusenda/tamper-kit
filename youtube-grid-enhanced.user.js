@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Youtube Grid Enhanced
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.3.0
+// @version      1.3.1
 // @description  Customize Youtube grid items per row and hide ads/unwanted elements.
 // @author       Ry-ys
 // @match        *://www.youtube.com/*
@@ -120,7 +120,7 @@
         LIVE CHAT FONT SIZE
         =================================== */
         yt-live-chat-text-message-renderer {
-            font-size: 18px !important;
+            font-size: 20px !important;
         }
     `;
   }
