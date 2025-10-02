@@ -16,7 +16,7 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | **Mailto to Gmail Redirect** | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/mailto-to-gmail-redirect.user.js) |
 | **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
 | **Wallhaven Enhance**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/wallhaven-enhance.user.js)        |
-| **YouTube Grid & Cleaner**    | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-cleaner.user.js)    |
+| **YouTube Grid & Cleaner**   | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-cleaner.user.js)     |
 | **Youtube Volume Enhanced**  | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-volume-enhanced.user.js)  |
 
 ---
@@ -38,7 +38,7 @@ Use them at your own risk.
 
 ---
 
-Found a bug or have a feature idea? Open an **Issue** in this repository.
+Found a bug or have a feature idea? Open an [**Issue**](https://github.com/Ryas-Yusenda/tamper-kit/issues) in this repository.
 
 ---
 
