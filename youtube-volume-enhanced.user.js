@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Youtube Volume Enhanced
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.5.0
+// @version      1.5.1
 // @description  Control YouTube volume up to 300% with keyboard shortcuts. Use Shift + ArrowUp to increase (+10%), Use Shift + ArrowDown to decrease (−10%).
 // @author       Ry-ys
-// @match        *://www.youtube.com/*
+// @match        *://*.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
 // @grant        none
 // @run-at       document-end
