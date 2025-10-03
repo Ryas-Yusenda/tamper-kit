@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Wallhaven Enhance
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.0.0
+// @version      2.5.0
 // @description  Wallhaven Enhancements: Download button on thumbnails, LightGallery integration, and more.
 // @author       Ry-ys
 // @match        *://*.wallhaven.cc/*
@@ -21,6 +21,18 @@
     l.rel = 'stylesheet';
     l.href = url;
     document.head.appendChild(l);
+  };
+
+  const injectCustomCss = () => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .thumb-info {
+        max-height: 4em !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    `;
+    document.head.appendChild(style);
   };
 
   const injectJS = url =>
@@ -46,12 +58,6 @@
     };
     xhr.send();
   };
-
-  async function loadLightGallery() {
-    injectCSS('https://cdn.staticfile.org/lightgallery/1.6.12/css/lightgallery.min.css');
-    await injectJS('https://cdn.staticfile.org/lightgallery/1.6.12/js/lightgallery-all.min.js');
-    console.log('LightGallery loaded!');
-  }
 
   class Pic {
     constructor(elem, ws) {
@@ -159,55 +165,40 @@
 
   new WallhavenScript().run();
 
-  const loadScript = () =>
-      new Promise(r => {
-        const s = document.createElement('script');
-        s.src = 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js';
-        document.head.appendChild(s);
-        s.onload = () => r();
-      }),
-    loadStylesheet = () =>
-      new Promise(r => {
-        const l = document.createElement('link');
-        l.rel = 'stylesheet';
-        l.href = 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css';
-        document.head.appendChild(l);
-        l.onload = () => r();
-      }),
-    loadFancybox = async () => {
-      await loadScript();
-      await loadStylesheet();
-    };
+  const loadFancybox = async () => {
+    injectCSS('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+    await injectJS('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+    console.log('Fancybox loaded!');
+  };
 
   const callFancyBox = () => {
-    loadFancybox().then(() => {
-      for (const el of document.querySelectorAll('.thumbs-container ul li')) {
-        const preview = el.querySelector('.preview');
-        const ext = el.querySelector('.thumb-info span.png') ? 'png' : 'jpg';
-        if (preview.getAttribute('data-href')) continue;
-        const id = /wallhaven\.cc\/w\/(\w{6})/.exec(preview.href)[1];
-        const path = id.substring(0, 2);
-        preview.setAttribute('data-href', preview.href);
-        preview.setAttribute('data-fancybox', 'gallery');
-        preview.href = `https://w.wallhaven.cc/full/${path}/wallhaven-${id}.${ext}`;
-      }
-      $('body').on('click', '[data-fancybox-download]', e => {
-        const url = $(e.target).parent()[0].href;
-        const name = url.substr(url.lastIndexOf('/') + 1);
-        forceDownload(url, name.replace('wallhaven-', ''));
-        e.preventDefault();
-      });
-      $("[data-fancybox='gallery']").fancybox({
-        buttons: ['zoom', 'share', 'slideShow', 'fullScreen', 'download', 'thumbs', 'close'],
-        thumbs: { autoStart: true }
-      });
+    for (const el of document.querySelectorAll('.thumbs-container ul li')) {
+      const preview = el.querySelector('.preview');
+      const ext = el.querySelector('.thumb-info span.png') ? 'png' : 'jpg';
+      if (preview.getAttribute('data-href')) continue;
+      const id = /wallhaven\.cc\/w\/(\w{6})/.exec(preview.href)[1];
+      const path = id.substring(0, 2);
+      preview.setAttribute('data-href', preview.href);
+      preview.setAttribute('data-fancybox', 'gallery');
+      preview.href = `https://w.wallhaven.cc/full/${path}/wallhaven-${id}.${ext}`;
+    }
+    $('body').on('click', '[data-fancybox-download]', e => {
+      const url = $(e.target).parent()[0].href;
+      const name = url.substr(url.lastIndexOf('/') + 1);
+      forceDownload(url, name.replace('wallhaven-', ''));
+      e.preventDefault();
+    });
+    $("[data-fancybox='gallery']").fancybox({
+      buttons: ['zoom', 'share', 'slideShow', 'fullScreen', 'download', 'thumbs', 'close'],
+      thumbs: { autoStart: true }
     });
   };
 
-  callFancyBox();
   new MutationObserver(m => {
     if (m[0].addedNodes.length && m[0].addedNodes[0].className === 'thumb-listing-page') callFancyBox();
   }).observe(document.querySelector('.thumbs-container'), { childList: true, characterDataOldValue: true });
 
-  loadLightGallery();
+  injectCustomCss();
+  loadFancybox();
+  callFancyBox();
 })();
