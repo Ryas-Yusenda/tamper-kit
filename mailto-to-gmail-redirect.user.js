@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Mailto to Gmail Redirect
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.1
+// @version      2.0.0
 // @description  Automatically converts all mailto: links into Gmail compose URLs and opens them in a new tab.
 // @author       Ry-ys
 // @match        *://*/*
@@ -16,19 +16,13 @@
 (function () {
   'use strict';
 
-  function updateMailtoLinks() {
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-      const email = link.getAttribute('href').replace(/^mailto:/, '');
-      const gmailURL = `https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${encodeURIComponent(email)}`;
-      link.setAttribute('href', gmailURL);
-      link.setAttribute('target', '_blank'); // Open in a new tab
+  const update = () => {
+    document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+      const email = a.href.replace(/^mailto:/, '');
+      a.href = `https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${encodeURIComponent(email)}`;
+      a.target = '_blank';
     });
-  }
-
-  // Run on initial load
-  updateMailtoLinks();
-
-  // Watch for dynamic DOM changes
-  const observer = new MutationObserver(updateMailtoLinks);
-  observer.observe(document.body, { childList: true, subtree: true });
+  };
+  update();
+  new MutationObserver(update).observe(document.body, { childList: true, subtree: true });
 })();
