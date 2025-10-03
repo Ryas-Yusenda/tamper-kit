@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Mailto to Gmail Redirect
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.0
+// @version      1.0.1
 // @description  Automatically converts all mailto: links into Gmail compose URLs and opens them in a new tab.
 // @author       Ry-ys
 // @match        *://*/*
