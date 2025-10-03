@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Wallhaven Enhance
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.0
+// @version      1.0.1
 // @description  Wallhaven Enhancements: Download button on thumbnails, LightGallery integration, and more.
 // @author       Ry-ys
-// @include      https://wallhaven.cc/*
+// @match        *://*.wallhaven.cc/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=wallhaven.cc
 // @grant        none
 // @run-at       document-end
