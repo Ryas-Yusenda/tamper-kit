@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Wallhaven Enhance
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.1
+// @version      1.5.0
 // @description  Wallhaven Enhancements: Download button on thumbnails, LightGallery integration, and more.
 // @author       Ry-ys
 // @match        *://*.wallhaven.cc/*
@@ -73,9 +73,16 @@
       }
     }
     addDownload() {
-      const dl = $(`<a class="jsDownload" href="javascript:;"><i class="fa fa-fw fa-cloud-download"></i></a>`)[0];
+      const dl = $(`<a class="jsDownload" style="margin-left: 10px;" href="javascript:;"><i class="fa fa-fw fa-cloud-download"></i></a>`)[0];
       dl.onclick = this.download.bind(this);
       $(this.elem).find('.thumb-info').append(dl);
+
+      this.addView();
+    }
+    addView() {
+      const hrefView = 'https://wallhaven.cc/w/' + this.id;
+      const v = $(`<a class="btn-view" style="margin-left:10px" target="_blank" href="${hrefView}"><i class="fa fa-fw fa-eye"></i></a>`).on('click', e => { e.stopPropagation(); window.open(hrefView,'_blank'); });
+      $(this.elem).find('.thumb-info').append(v);
     }
     download() {
       forceDownload(this.picUrl, this.name);
