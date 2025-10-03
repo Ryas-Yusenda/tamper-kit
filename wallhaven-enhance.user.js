@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Wallhaven Enhance
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.5.0
+// @version      2.5.5
 // @description  Wallhaven Enhancements: Download button on thumbnails, LightGallery integration, and more.
 // @author       Ry-ys
 // @match        *://*.wallhaven.cc/*
@@ -165,32 +165,37 @@
 
   new WallhavenScript().run();
 
+  let fancyboxInit = false;
   const loadFancybox = async () => {
+    if (fancyboxInit) return;
     injectCSS('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
     await injectJS('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+    fancyboxInit = true;
     console.log('Fancybox loaded!');
   };
 
   const callFancyBox = () => {
-    for (const el of document.querySelectorAll('.thumbs-container ul li')) {
-      const preview = el.querySelector('.preview');
-      const ext = el.querySelector('.thumb-info span.png') ? 'png' : 'jpg';
-      if (preview.getAttribute('data-href')) continue;
-      const id = /wallhaven\.cc\/w\/(\w{6})/.exec(preview.href)[1];
-      const path = id.substring(0, 2);
-      preview.setAttribute('data-href', preview.href);
-      preview.setAttribute('data-fancybox', 'gallery');
-      preview.href = `https://w.wallhaven.cc/full/${path}/wallhaven-${id}.${ext}`;
-    }
-    $('body').on('click', '[data-fancybox-download]', e => {
-      const url = $(e.target).parent()[0].href;
-      const name = url.substr(url.lastIndexOf('/') + 1);
-      forceDownload(url, name.replace('wallhaven-', ''));
-      e.preventDefault();
-    });
-    $("[data-fancybox='gallery']").fancybox({
-      buttons: ['zoom', 'share', 'slideShow', 'fullScreen', 'download', 'thumbs', 'close'],
-      thumbs: { autoStart: true }
+    loadFancybox().then(() => {
+      for (const el of document.querySelectorAll('.thumbs-container ul li')) {
+        const preview = el.querySelector('.preview');
+        const ext = el.querySelector('.thumb-info span.png') ? 'png' : 'jpg';
+        if (preview.getAttribute('data-href')) continue;
+        const id = /wallhaven\.cc\/w\/(\w{6})/.exec(preview.href)[1];
+        const path = id.substring(0, 2);
+        preview.setAttribute('data-href', preview.href);
+        preview.setAttribute('data-fancybox', 'gallery');
+        preview.href = `https://w.wallhaven.cc/full/${path}/wallhaven-${id}.${ext}`;
+      }
+      $('body').on('click', '[data-fancybox-download]', e => {
+        const url = $(e.target).parent()[0].href;
+        const name = url.substr(url.lastIndexOf('/') + 1);
+        forceDownload(url, name.replace('wallhaven-', ''));
+        e.preventDefault();
+      });
+      $("[data-fancybox='gallery']").fancybox({
+        buttons: ['zoom', 'share', 'slideShow', 'fullScreen', 'download', 'thumbs', 'close'],
+        thumbs: { autoStart: true }
+      });
     });
   };
 
@@ -199,6 +204,5 @@
   }).observe(document.querySelector('.thumbs-container'), { childList: true, characterDataOldValue: true });
 
   injectCustomCss();
-  loadFancybox();
   callFancyBox();
 })();
