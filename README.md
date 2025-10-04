@@ -37,6 +37,8 @@ All scripts in this repository are created **for educational purposes only**.
 I am **not responsible** for any misuse, issues, or damages that may result from using these scripts.  
 Use them at your own risk.
 
+🚨 **Not Intended for Circumventing Service Terms**
+
 ---
 
 Found a bug or have a feature idea? Open an [**Issue**](https://github.com/Ryas-Yusenda/tamper-kit/issues) in this repository.
