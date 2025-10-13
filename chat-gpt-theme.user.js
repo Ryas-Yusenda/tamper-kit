@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Soft Green Theme
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.1.0
+// @version      2.2.0
 // @description  Change ChatGPT custom theme to soft green
 // @author       Ry-ys
 // @match        *://*.chatgpt.com/*
@@ -31,7 +31,7 @@
       --theme-user-selection-bg:#ffffff33!important;
     }
     .bg-token-main-surface-primary {
-      background: #4cafa34d !important;
+      background: rgba(76, 175, 163, 0.5) !important;
     }
     aside.bg-token-main-surface-primary .min-w-fit {
       display:none !important;
