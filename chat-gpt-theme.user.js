@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Soft Green Theme
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.0.0
+// @version      2.1.0
 // @description  Change ChatGPT custom theme to soft green
 // @author       Ry-ys
 // @match        *://*.chatgpt.com/*
@@ -29,6 +29,13 @@
       --theme-user-msg-bg:#4cafa380!important;
       --theme-user-msg-text:#f9f9f9!important;
       --theme-user-selection-bg:#ffffff33!important;
-    }`;
+    }
+    .bg-token-main-surface-primary {
+      background: #4cafa34d !important;
+    }
+    aside.bg-token-main-surface-primary .min-w-fit {
+      display:none !important;
+    }
+  `;
   document.head.appendChild(style);
 })();
