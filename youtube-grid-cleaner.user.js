@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Grid & Cleaner
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      3.0.1
+// @version      3.0.2
 // @description  Adjust the number of videos per row based on screen width and hide ads, Shorts, and other unwanted elements on YouTube for a cleaner layout experience.
 // @author       Ry-ys
 // @match        *://*.youtube.com/*
@@ -73,7 +73,7 @@
         gap: 2px;
       }
       yt-live-chat-text-message-renderer {
-        font-size: 20px !important;
+        font-size: 15px !important;
       }
     `;
   }
