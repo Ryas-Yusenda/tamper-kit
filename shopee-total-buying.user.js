@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Shopee Total Buying
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.0
-// @description  Automatically displays your total spending and purchase summary on Shopee order pages for quick insights.
+// @version      1.5.0
+// @description  Displays your total spending on Shopee order pages, excluding cancelled orders.(Skip Cancelled Orders)
 // @author       Ry-ys
 // @match        *://*.shopee.co.id/user/purchase*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=shopee.co.id
@@ -43,15 +43,32 @@
   totalDiv.textContent = 'Loading total...';
   document.body.appendChild(totalDiv);
 
+  // helper: check if element belongs to a cancelled order
+  function isCancelled(el) {
+    const container = el.closest('.YL_VlX'); // tiap order container
+    if (!container) return false;
+    const statusEl = container.querySelector('.bv3eJE');
+    if (!statusEl) return false;
+    const statusText = statusEl.textContent.trim().toLowerCase();
+    return statusText.includes('dibatalkan');
+  }
+
   // calculate total
   function calculateTotal() {
     const elements = document.querySelectorAll(SELECTOR);
     let total = 0;
-    console.log('[ShopeeTotal] found elements:', elements.length);
+    let skipped = 0;
+
     elements.forEach(el => {
+      if (isCancelled(el)) {
+        skipped++;
+        return;
+      }
       total += extractNumber(el.textContent || '');
     });
-    totalDiv.textContent = `🧾 Total: Rp ${total.toLocaleString('id-ID')}`;
+
+    totalDiv.textContent = `🧾 Total: Rp ${total.toLocaleString('id-ID')} (Skip ${skipped})`;
+    console.log(`[ShopeeTotal] Total Rp${total}, skipped ${skipped} cancelled orders`);
   }
 
   // observe <main> for any added nodes (robust)
@@ -63,20 +80,14 @@
       return;
     }
 
-    // initial calc
     calculateTotal();
 
     const observer = new MutationObserver(mutations => {
       let shouldRecalc = false;
       for (const m of mutations) {
-        // if nodes added directly match or contain descendants that match the selector
         for (const node of m.addedNodes) {
           if (node.nodeType !== 1) continue;
-          if (node.matches && node.matches(SELECTOR)) {
-            shouldRecalc = true;
-            break;
-          }
-          if (node.querySelector && node.querySelector(SELECTOR)) {
+          if (node.matches?.(SELECTOR) || node.querySelector?.(SELECTOR)) {
             shouldRecalc = true;
             break;
           }
@@ -93,13 +104,13 @@
     console.log('[ShopeeTotal] Observer attached to <main>');
   }
 
-  // start logic: check CSS link then start observing (supports cases where load already fired)
+  // start logic: check CSS link then start observing
   function startIfCssMatches() {
     const link = document.querySelector(`link[rel="preload"][as="style"][href="${hrefToCheck}"]`);
     if (!link) {
       console.warn('[ShopeeTotal] preload link not found:', hrefToCheck);
-      // optional: still continue without link check — uncomment next line to force run
-      // observeMain();
+      // tetap lanjut meskipun link tidak ditemukan
+      observeMain();
       return;
     }
 
@@ -111,13 +122,10 @@
       start();
     } else {
       window.addEventListener('load', start, { once: true });
-      // also try DOMContentLoaded as a fallback for SPA-ish pages
       window.addEventListener(
         'DOMContentLoaded',
         () => {
-          if (document.readyState === 'interactive' || document.readyState === 'complete') {
-            start();
-          }
+          if (document.readyState === 'interactive' || document.readyState === 'complete') start();
         },
         { once: true }
       );
