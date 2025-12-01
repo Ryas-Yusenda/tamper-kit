@@ -4,7 +4,8 @@
 // @version      1.5.0
 // @description  Displays your total spending on Shopee order pages, excluding cancelled orders.(Skip Cancelled Orders)
 // @author       Ry-ys
-// @match        *://*.shopee.co.id/user/purchase*
+// @match        *://*.shopee.co.id/user/purchase
+// @match        *://*.shopee.co.id/user/purchase/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=shopee.co.id
 // @grant        none
 // @run-at       document-end
