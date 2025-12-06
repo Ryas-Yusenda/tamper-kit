@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Shopee Total Buying
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.7.0
+// @version      1.8.0
 // @description  Displays your total spending on Shopee order pages, excluding cancelled orders.
 // @author       Ry-ys
 // @match        *://*.shopee.co.id/*
@@ -13,14 +13,6 @@
 
 (function () {
   'use strict';
-
-  // Hanya jalan di URL pembelian
-  const isPurchasePage = location.href.startsWith('https://shopee.co.id/user/purchase/') || location.href.includes('/user/purchase/');
-
-  if (!isPurchasePage) {
-    console.log('[ShopeeTotal] Not purchase page -> script disabled.');
-    return;
-  }
 
   const hrefToCheck = 'https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/orderlist/pcmall-orderlist.be906d354978591b4b3d.css';
   const SELECTOR = '.t7TQaf';
@@ -47,7 +39,7 @@
     boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
     backdropFilter: 'blur(6px)'
   });
-  totalDiv.textContent = 'Loading total...';
+  totalDiv.textContent = '$';
   document.body.appendChild(totalDiv);
 
   function isCancelled(el) {
@@ -79,6 +71,7 @@
     const main = document.querySelector('main');
     if (!main) {
       console.log('[ShopeeTotal] <main> not found, retrying in 800ms');
+      totalDiv.textContent = '$';
       setTimeout(observeMain, 800);
       return;
     }
@@ -109,7 +102,15 @@
     console.log('[ShopeeTotal] Observer attached to <main>');
   }
 
-  function startIfCssMatches() {
+  function startIfMatches() {
+    const isPurchasePage = location.href.startsWith('https://shopee.co.id/user/purchase/') || location.href.includes('/user/purchase/');
+
+    if (!isPurchasePage) {
+      console.log('[ShopeeTotal] Not purchase page -> script disabled.');
+      totalDiv.textContent = '$';
+      return;
+    }
+
     const link = document.querySelector(`link[rel="preload"][as="style"][href="${hrefToCheck}"]`);
 
     if (!link) {
@@ -136,5 +137,27 @@
     }
   }
 
-  startIfCssMatches();
+  const pushState = history.pushState;
+  const replaceState = history.replaceState;
+
+  function triggerEvent(type) {
+    const event = new Event(type);
+    window.dispatchEvent(event);
+  }
+
+  history.pushState = function (...args) {
+    pushState.apply(history, args);
+    triggerEvent('urlchange');
+  };
+
+  history.replaceState = function (...args) {
+    replaceState.apply(history, args);
+    triggerEvent('urlchange');
+  };
+
+  window.addEventListener('popstate', () => triggerEvent('urlchange'));
+
+  window.addEventListener('urlchange', () => {
+    startIfMatches();
+  });
 })();
