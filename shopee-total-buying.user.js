@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         Shopee Total Buying
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.6.0
-// @description  Displays your total spending on Shopee order pages, excluding cancelled orders.(Skip Cancelled Orders)
+// @version      1.7.0
+// @description  Displays your total spending on Shopee order pages, excluding cancelled orders.
 // @author       Ry-ys
-// @match        *://*.shopee.co.id/user/purchase
-// @match        *://*.shopee.co.id/user/purchase/*
+// @match        *://*.shopee.co.id/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=shopee.co.id
 // @grant        none
 // @run-at       document-end
@@ -15,16 +14,23 @@
 (function () {
   'use strict';
 
+  // Hanya jalan di URL pembelian
+  const isPurchasePage = location.href.startsWith('https://shopee.co.id/user/purchase/') || location.href.includes('/user/purchase/');
+
+  if (!isPurchasePage) {
+    console.log('[ShopeeTotal] Not purchase page -> script disabled.');
+    return;
+  }
+
   const hrefToCheck = 'https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/orderlist/pcmall-orderlist.be906d354978591b4b3d.css';
   const SELECTOR = '.t7TQaf';
 
-  // helper: extract numbers only
   function extractNumber(text) {
     const digits = (text || '').replace(/[^\d]/g, '');
     return digits ? parseInt(digits, 10) : 0;
   }
 
-  // create floating div
+  // floating div
   const totalDiv = document.createElement('div');
   Object.assign(totalDiv.style, {
     position: 'fixed',
@@ -44,17 +50,14 @@
   totalDiv.textContent = 'Loading total...';
   document.body.appendChild(totalDiv);
 
-  // helper: check if element belongs to a cancelled order
   function isCancelled(el) {
-    const container = el.closest('.YL_VlX'); // tiap order container
+    const container = el.closest('.YL_VlX');
     if (!container) return false;
     const statusEl = container.querySelector('.bv3eJE');
     if (!statusEl) return false;
-    const statusText = statusEl.textContent.trim().toLowerCase();
-    return statusText.includes('dibatalkan');
+    return statusEl.textContent.trim().toLowerCase().includes('dibatalkan');
   }
 
-  // calculate total
   function calculateTotal() {
     const elements = document.querySelectorAll(SELECTOR);
     let total = 0;
@@ -69,10 +72,9 @@
     });
 
     totalDiv.textContent = `🧾 Total: Rp ${total.toLocaleString('id-ID')} (Skip ${skipped})`;
-    console.log(`[ShopeeTotal] Total Rp${total}, skipped ${skipped} cancelled orders`);
+    console.log(`[ShopeeTotal] Total Rp${total}, skipped ${skipped}`);
   }
 
-  // observe <main> for any added nodes (robust)
   function observeMain() {
     const main = document.querySelector('main');
     if (!main) {
@@ -85,6 +87,7 @@
 
     const observer = new MutationObserver(mutations => {
       let shouldRecalc = false;
+
       for (const m of mutations) {
         for (const node of m.addedNodes) {
           if (node.nodeType !== 1) continue;
@@ -95,8 +98,9 @@
         }
         if (shouldRecalc) break;
       }
+
       if (shouldRecalc) {
-        console.log('[ShopeeTotal] changes detected -> recalc');
+        console.log('[ShopeeTotal] DOM changed -> recalc');
         calculateTotal();
       }
     });
@@ -105,12 +109,11 @@
     console.log('[ShopeeTotal] Observer attached to <main>');
   }
 
-  // start logic: check CSS link then start observing
   function startIfCssMatches() {
     const link = document.querySelector(`link[rel="preload"][as="style"][href="${hrefToCheck}"]`);
+
     if (!link) {
-      console.warn('[ShopeeTotal] preload link not found:', hrefToCheck);
-      // tetap lanjut meskipun link tidak ditemukan
+      console.warn('[ShopeeTotal] Style preload not found -> still continue');
       observeMain();
       return;
     }
@@ -126,7 +129,7 @@
       window.addEventListener(
         'DOMContentLoaded',
         () => {
-          if (document.readyState === 'interactive' || document.readyState === 'complete') start();
+          if (['interactive', 'complete'].includes(document.readyState)) start();
         },
         { once: true }
       );
