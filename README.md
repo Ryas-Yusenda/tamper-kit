@@ -17,7 +17,7 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | **Shopee Total Buying**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/shopee-total-buying.user.js)      |
 | **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
 | **Wallhaven Enhance**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/wallhaven-enhance.user.js)        |
-| **YouTube Grid & Cleaner**   | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid-cleaner.user.js)     |
+| **YouTube Grid**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid.user.js)             |
 
 ---
 
