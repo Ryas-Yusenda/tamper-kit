@@ -24,9 +24,7 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 ## 🚀 Installation
 
 1. Make sure you have [Tampermonkey](https://www.tampermonkey.net/) installed in your browser.
-2. Open any `.user.js` file in this repository.
-3. Click the **Raw** button.
-4. Tampermonkey will automatically show the install dialog → click **Install**.
+2. Click the **"🔗 Install"** button, tampermonkey will automatically show the install dialog.
 
 ---
 
