@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Acefile Bypass
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.1.0
+// @version      2.1.1
 // @description  Bypass Pixeldrain Download Limit (with zip file content support).
 // @author       Ry-ys
 // @match        *://*.acefile.com/*

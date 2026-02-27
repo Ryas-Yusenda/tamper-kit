@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Canva Dark Theme
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.0
+// @version      1.0.1
 // @description  Improve the dark theme of the Canva app
 // @author       Ry-ys
 // @match        *://*.canva.com/*

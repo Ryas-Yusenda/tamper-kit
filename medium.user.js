@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Medium Article Redirection (Educational)
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      3.5.0
+// @version      3.5.1
 // @description  Educational demonstration of client-side redirection and content mirroring.
 // @author       Ry-ys
 // @match        *://medium.com/*

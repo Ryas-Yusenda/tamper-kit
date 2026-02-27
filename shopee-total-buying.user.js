@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Shopee Total Buying
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.8.0
+// @version      1.8.1
 // @description  Displays your total spending on Shopee order pages, excluding cancelled orders.
 // @author       Ry-ys
 // @match        *://*.shopee.co.id/*

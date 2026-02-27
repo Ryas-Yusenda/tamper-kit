@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Soft Green Theme
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.2.0
+// @version      2.2.1
 // @description  Change ChatGPT custom theme to soft green
 // @author       Ry-ys
 // @match        *://*.chatgpt.com/*

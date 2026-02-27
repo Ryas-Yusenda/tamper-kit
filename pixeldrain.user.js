@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pixeldrain URL Transformation Demo (Educational)
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.9.0
+// @version      2.9.1
 // @description  Educational demonstration of client-side URL transformation, DOM injection, and UI augmentation.
 // @author       Ry-ys
 // @match        *://*.pixeldrain.com/*

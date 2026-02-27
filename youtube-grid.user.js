@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Grid
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      1.0.0
+// @version      2.0.1
 // @description  Adjust the number of videos per row based on screen width.
 // @author       Ry-ys
 // @match        *://*.youtube.com/*
