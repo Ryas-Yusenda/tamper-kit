@@ -14,10 +14,10 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | **Canva Theme**              | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/canva-theme.user.js)              |
 | **ChatGPT Theme**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/chat-gpt-theme.user.js)           |
 | **ChatGPT Exporter**         | [🔗 Install](https://update.greasyfork.org/scripts/456055/ChatGPT%20Exporter.user.js)              |
+| **Gofile Redict**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/gofile.user.js)                   |
 | **Mailto to Gmail Redirect** | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/mailto-to-gmail-redirect.user.js) |
 | **Medium Redict**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium.user.js)                   |
 | **OuoIo Redict**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/ouo-io.user.js)                   |
-| **Pixeldrain Redict**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/pixeldrain.user.js)               |
 | **Shopee Total Buying**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/shopee-total-buying.user.js)      |
 | **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
 | **Wallhaven Enhance**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/wallhaven-enhance.user.js)        |
