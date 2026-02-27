@@ -1,6 +1,6 @@
 # 🐒 Tamper Lab
 
-A personal collection of **userscripts** for [Tampermonkey](https://www.tampermonkey.net/).  
+A personal collection of **userscripts** for [Tampermonkey](https://www.tampermonkey.net/).
 These scripts are designed to automate repetitive tasks, improve website layouts, and make browsing more efficient.
 
 ---
@@ -10,13 +10,13 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | Script Name                  | Install                                                                                            |
 | ---------------------------- | -------------------------------------------------------------------------------------------------- |
 | **Auto Scroll Clicker**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/auto-scroll-clicker)              |
-| **AceFile Redict**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/acefile-bypass.user.js)           |
+| **AceFile Redict**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/acefile.user.js)                  |
 | **Canva Theme**              | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/canva-theme.user.js)              |
 | **ChatGPT Theme**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/chat-gpt-theme.user.js)           |
 | **ChatGPT Exporter**         | [🔗 Install](https://update.greasyfork.org/scripts/456055/ChatGPT%20Exporter.user.js)              |
 | **Mailto to Gmail Redirect** | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/mailto-to-gmail-redirect.user.js) |
-| **Medium Redict**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium-bypass.user.js)            |
-| **OuoIo Redict**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/ouo-io-bypass.user.js)            |
+| **Medium Redict**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium.user.js)                   |
+| **OuoIo Redict**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/ouo-io.user.js)                   |
 | **Pixeldrain Redict**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/pixeldrain.user.js)               |
 | **Shopee Total Buying**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/shopee-total-buying.user.js)      |
 | **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
@@ -34,8 +34,8 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 
 ## ⚠️ Disclaimer
 
-All scripts in this repository are created **for educational purposes only**.  
-I am **not responsible** for any misuse, issues, or damages that may result from using these scripts.  
+All scripts in this repository are created **for educational purposes only**.
+I am **not responsible** for any misuse, issues, or damages that may result from using these scripts.
 Use them at your own risk.
 
 🚨 **Not Intended for Circumventing Service Terms**
@@ -48,5 +48,5 @@ Found a bug or have a feature idea? Open an [**Issue**](https://github.com/Ryas-
 
 ## 📜 License
 
-All scripts in this repository are released under the [MIT License](LICENSE).  
+All scripts in this repository are released under the [MIT License](LICENSE).
 Feel free to use, modify, and share them.

@@ -9,6 +9,8 @@
 // @grant        none
 // @run-at       document-idle
 // @license      MIT
+// @updateURL    http://tamper-kit.test/ouo-io.user.js
+// @downloadURL  http://tamper-kit.test/ouo-io.user.js
 // ==/UserScript==
 
 /*

@@ -9,6 +9,8 @@
 // @grant        none
 // @run-at       document-end
 // @license      MIT
+// @updateURL    http://tamper-kit.test/shopee-total-buying.user.js
+// @downloadURL  http://tamper-kit.test/shopee-total-buying.user.js
 // ==/UserScript==
 
 (function () {
