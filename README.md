@@ -17,6 +17,7 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | **Mailto to Gmail Redirect** | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/mailto-to-gmail-redirect.user.js) |
 | **Medium Redict**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium-bypass.user.js)            |
 | **OuoIo Redict**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/ouo-io-bypass.user.js)            |
+| **Pixeldrain Redict**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/pixeldrain.user.js)               |
 | **Shopee Total Buying**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/shopee-total-buying.user.js)      |
 | **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
 | **Wallhaven Enhance**        | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/wallhaven-enhance.user.js)        |
