@@ -10,8 +10,8 @@
 // @grant        none
 // @run-at       document-idle
 // @license      MIT
-// @updateURL    http://tamper-kit.test/medium.user.js
-// @downloadURL  http://tamper-kit.test/medium.user.js
+// @updateURL    https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium.user.js
+// @downloadURL  https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium.user.js
 // ==/UserScript==
 
 /*

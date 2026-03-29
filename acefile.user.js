@@ -9,8 +9,8 @@
 // @grant        none
 // @run-at       document-idle
 // @license      MIT
-// @updateURL    http://tamper-kit.test/acefile.user.js
-// @downloadURL  http://tamper-kit.test/acefile.user.js
+// @updateURL    https://github.com/Ryas-Yusenda/tamper-kit/raw/main/acefile.user.js
+// @downloadURL  https://github.com/Ryas-Yusenda/tamper-kit/raw/main/acefile.user.js
 // @require      https://gist.githubusercontent.com/X-Gorn/e881afb007713a78c2fe429b08b6d7ce/raw/unPacker.js
 // ==/UserScript==
 
