@@ -9,7 +9,6 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 
 | Script Name                  | Install                                                                                            |
 | ---------------------------- | -------------------------------------------------------------------------------------------------- |
-| **Auto Scroll Clicker**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/auto-scroll-clicker)              |
 | **AceFile Redict**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/acefile.user.js)                  |
 | **Canva Theme**              | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/canva-theme.user.js)              |
 | **ChatGPT Theme**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/chat-gpt-theme.user.js)           |
