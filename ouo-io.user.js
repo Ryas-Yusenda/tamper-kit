@@ -5,6 +5,7 @@
 // @description  Educational demonstration of form detection and automated submission logic.
 // @author       Ry-ys
 // @match        *://*.ouo.io/*
+// @match        *://*.ouo.press/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ouo.io
 // @grant        none
 // @run-at       document-idle
