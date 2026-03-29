@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ouo.io Form Automation (Educational)
 // @namespace    https://github.com/Ryas-Yusenda/tamper-kit
-// @version      2.0.1
+// @version      2.0.2
 // @description  Educational demonstration of form detection and automated submission logic.
 // @author       Ry-ys
 // @match        *://*.ouo.io/*
