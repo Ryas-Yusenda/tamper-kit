@@ -16,7 +16,6 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | **Medium Redict**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium.user.js)                   |
 | **OuoIo Redict**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/ouo-io.user.js)                   |
 | **Shopee Total Buying**      | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/shopee-total-buying.user.js)      |
-| **Streaming Mode**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/streaming-mode)                   |
 | **YouTube Grid**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/youtube-grid.user.js)             |
 
 ---
