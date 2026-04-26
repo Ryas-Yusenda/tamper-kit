@@ -4,8 +4,7 @@
 // @version      3.5.1
 // @description  Educational demonstration of client-side redirection and content mirroring.
 // @author       Ry-ys
-// @match        *://medium.com/*
-// @match        *://*.medium.com/*
+// @match        *://*/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=medium.com
 // @grant        none
 // @run-at       document-idle
