@@ -11,7 +11,6 @@ These scripts are designed to automate repetitive tasks, improve website layouts
 | ---------------------------- | -------------------------------------------------------------------------------------------------- |
 | **AceFile Redict**           | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/acefile.user.js)                  |
 | **Canva Theme**              | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/canva-theme.user.js)              |
-| **ChatGPT Theme**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/chat-gpt-theme.user.js)           |
 | **Mailto to Gmail Redirect** | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/mailto-to-gmail-redirect.user.js) |
 | **Medium Redict**            | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/medium.user.js)                   |
 | **OuoIo Redict**             | [🔗 Install](https://github.com/Ryas-Yusenda/tamper-kit/raw/main/ouo-io.user.js)                   |
